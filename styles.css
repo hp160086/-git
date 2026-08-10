@@ -36,7 +36,8 @@ button { cursor: pointer; }
 }
 
 .app { min-height: 100vh; padding-bottom: calc(104px + env(safe-area-inset-bottom)); }
-.screen { min-height: 100vh; animation: page-in 180ms ease-out; }
+.screen { min-height: 100vh; }
+.screen.page-enter { animation: page-in 180ms ease-out; }
 @keyframes page-in { from { opacity: .4; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 
 .topbar { padding: 16px 18px 10px; background: var(--surface); }

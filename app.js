@@ -30,6 +30,7 @@ const state = {
 
 const app = document.querySelector("#app");
 const toast = document.querySelector("#toast");
+let renderedPage = null;
 
 const icons = {
   search: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>',
@@ -125,6 +126,8 @@ function profilePage() {
 function render() {
   const page = { home: homePage, category: categoryPage, detail: detailPage, cart: cartPage, checkout: checkoutPage, orders: ordersPage, profile: profilePage }[state.page] || homePage;
   app.innerHTML = page();
+  if (renderedPage !== state.page) app.querySelector(".screen")?.classList.add("page-enter");
+  renderedPage = state.page;
 }
 
 function showToast(message) {
