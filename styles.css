@@ -260,6 +260,28 @@ button { cursor: pointer; }
 .nav-item svg { width: 21px; height: 21px; }
 .nav-badge { background: var(--orange); }
 
+.profile-content { padding-top: 16px; }
+.profile-hero { display: flex; align-items: center; gap: 13px; padding: 18px 16px; border: 1px solid #dbeedf; border-radius: 22px; background: #eaf7ec; }
+.profile-hero .avatar { width: 52px; height: 52px; flex: 0 0 auto; background: #fff; box-shadow: 0 5px 14px rgba(40, 108, 61, .08); }
+.profile-copy { min-width: 0; flex: 1; }
+.profile-name { font-size: 16px; font-weight: 800; color: var(--green-900); }
+.profile-hint { margin-top: 5px; color: #708477; font-size: 11px; line-height: 1.45; }
+.profile-location { margin-top: 7px; color: var(--green-700); font-size: 11px; font-weight: 700; }
+.profile-arrow { width: 30px; height: 30px; flex: 0 0 auto; border: 0; background: transparent; color: var(--green-700); }
+.profile-arrow svg { width: 19px; height: 19px; }
+.profile-section { margin-top: 14px; padding: 16px; border: 1px solid #edf2ed; border-radius: 20px; background: #fff; box-shadow: 0 8px 22px rgba(37, 89, 53, .045); }
+.profile-section-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.profile-section-head .section-title { margin: 0; }
+.order-status-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; }
+.order-status-item { display: grid; justify-items: center; gap: 7px; border: 0; padding: 2px 0; background: transparent; color: #617368; font-size: 11px; white-space: nowrap; }
+.status-icon { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 14px; background: #f0f8ef; color: var(--green-700); font-size: 18px; font-weight: 800; }
+.profile-list { padding: 0; overflow: hidden; }
+.profile-list .setting { min-height: 52px; }
+.setting { width: 100%; border: 0; border-bottom: 1px solid var(--line); background: #fff; color: var(--ink); text-align: left; }
+.setting:last-child { border-bottom: 0; }
+.setting > span { display: inline-flex; align-items: center; gap: 10px; }
+.setting-icon { width: 25px; height: 25px; display: grid; place-items: center; border-radius: 9px; background: #f0f8ef; color: var(--green-700); font-size: 15px; font-style: normal; }
+
 @media (min-width: 600px) {
   .app { min-height: calc(100vh - 48px); }
   .screen { padding-bottom: 16px; }

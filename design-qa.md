@@ -41,3 +41,13 @@ No actionable P0, P1 or P2 findings remain for this visual iteration.
 - Tune actual store name lockup, logo and product imagery once supplied by the shop owner.
 
 final result: passed
+
+## Follow-up iteration: 我的页面
+
+Implementation screenshot: `C:/Users/Administrator/AppData/Local/Temp/lexian-profile-latest.png`
+
+- Replaced the previous unstructured settings stack with three clear groups: profile card, order status shortcuts and common services.
+- Removed browser-default button borders that caused the original black outlines and uneven widths.
+- Verified the “全部订单” shortcut opens the order list and the console remains error-free.
+
+final result: passed

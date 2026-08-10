@@ -118,7 +118,8 @@ function orderCard(order) {
 }
 
 function profilePage() {
-  return `<section class="screen">${topbar("我的")}<div class="content"><div class="profile-card"><div class="avatar">😊</div><div><div class="profile-name">欢迎来到乐享便利店</div><div class="profile-hint">登录后可以查看订单和收货地址</div></div></div><div class="setting-list"><button class="setting" data-page="orders"><span>我的订单</span>${icons.arrow}</button><button class="setting"><span>收货地址</span>${icons.arrow}</button><button class="setting"><span>联系客服</span>${icons.arrow}</button><button class="setting"><span>关于小程序</span>${icons.arrow}</button></div></div>${nav("profile")}</section>`;
+  const orderShortcuts = [["待接单", "⌛"], ["配送中", "🚲"], ["已送达", "✓"], ["全部订单", "▤"]];
+  return `<section class="screen">${topbar("我的")}<div class="content profile-content"><section class="profile-hero"><div class="avatar">😊</div><div class="profile-copy"><div class="profile-name">欢迎来到乐享便利店</div><div class="profile-hint">登录微信后，可查看订单和收货地址</div><div class="profile-location">赤水本地 · 邻里好生活</div></div><button class="profile-arrow" aria-label="个人资料">${icons.arrow}</button></section><section class="profile-section"><div class="profile-section-head"><h2 class="section-title">我的订单</h2><button class="section-link" data-page="orders">全部订单 ${icons.arrow}</button></div><div class="order-status-grid">${orderShortcuts.map(([label, symbol]) => `<button class="order-status-item" data-page="orders"><span class="status-icon">${symbol}</span><span>${label}</span></button>`).join("")}</div></section><section class="profile-section profile-list"><button class="setting"><span><i class="setting-icon">⌂</i>收货地址</span>${icons.arrow}</button><button class="setting"><span><i class="setting-icon">☏</i>联系客服</span>${icons.arrow}</button><button class="setting"><span><i class="setting-icon">♧</i>关于乐享便利店</span>${icons.arrow}</button></section></div>${nav("profile")}</section>`;
 }
 
 function render() {
