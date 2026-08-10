@@ -61,7 +61,7 @@ function nav(current) {
 }
 
 function topbar(title, back = false) {
-  return `<header class="topbar compact">${back ? `<button class="back-btn" data-page="${state.page === "detail" ? "category" : "cart"}">${icons.back}<span>返回</span></button>` : `<div><div class="eyebrow">社区便利 · 店员配送</div><div class="brand">乐享<span>便利店</span></div></div>`}<strong>${title}</strong><div class="mini-actions"><button class="icon-btn" aria-label="更多">•••</button><button class="icon-btn" aria-label="小程序菜单">◉</button></div></header>`;
+  return `<header class="topbar compact">${back ? `<button class="back-btn" data-page="${state.page === "detail" ? "category" : "cart"}">${icons.back}<span>返回</span></button>` : `<div><div class="eyebrow">社区便利 · 店员配送</div><div class="brand">乐享<span>便利店</span></div></div>`}<strong>${title}</strong><div class="mini-actions"><img class="bamboo-mark" src="./assets/horizontal-bamboo.png" alt="" /></div></header>`;
 }
 
 function searchBox(placeholder = "搜一搜你想买的商品") {
@@ -69,7 +69,7 @@ function searchBox(placeholder = "搜一搜你想买的商品") {
 }
 
 function homePage() {
-  return `<section class="screen"><header class="topbar home-topbar"><div class="brand-row"><div><div class="brand home-brand">乐享<span>便利店</span></div><div class="eyebrow">欢迎回来，今天也要好好生活</div><div class="location">${icons.pin} 赤水本地 · 邻里超市</div></div><div class="mini-actions"><button class="icon-btn" aria-label="更多">•••</button><button class="icon-btn" aria-label="小程序菜单">◉</button></div></div>${searchBox()}</header><div class="content"><div class="hero has-waterfall"><div class="hero-copy"><div class="hero-kicker">赤水竹瀑 · 清爽邻里</div><h1>赤水的鲜味<br/>送到家门口</h1><p>店员配送，仅限本小区<br/>满35元免配送费</p><button class="hero-action" data-page="category">去逛逛 ${icons.arrow}</button></div></div><div class="service-strip"><div class="service-left">${icons.truck}<span>店员配送 · 本小区内</span></div><div class="service-right">满35元免配送费</div></div><section class="section"><div class="section-head"><h2 class="section-title">常买分类</h2><button class="section-link" data-page="category">全部分类 ${icons.arrow}</button></div><div class="category-grid">${categories.map(([emoji, name]) => `<button class="category-item" data-category="${name}"><span class="category-icon">${emoji}</span><span>${name}</span></button>`).join("")}</div></section><section class="section"><div class="section-head"><h2 class="section-title">精选推荐</h2><button class="section-link" data-page="category">更多 ${icons.arrow}</button></div><div class="product-grid">${products.slice(0, 4).map(productCard).join("")}</div></section></div>${nav("home")}</section>`;
+  return `<section class="screen"><header class="topbar home-topbar"><div class="brand-row"><div><div class="brand home-brand">乐享<span>便利店</span></div><div class="eyebrow">欢迎回来，今天也要好好生活</div><div class="location">${icons.pin} 赤水本地 · 邻里超市</div></div><div class="mini-actions"><img class="bamboo-mark" src="./assets/horizontal-bamboo.png" alt="" /></div></div>${searchBox()}</header><div class="content"><div class="hero has-waterfall"><div class="hero-copy"><div class="hero-kicker">赤水竹瀑 · 清爽邻里</div><h1>赤水的鲜味<br/>送到家门口</h1><p>店员配送，仅限本小区<br/>满35元免配送费</p><button class="hero-action" data-page="category">去逛逛 ${icons.arrow}</button></div></div><div class="service-strip"><div class="service-left">${icons.truck}<span>店员配送 · 本小区内</span></div><div class="service-right">满35元免配送费</div></div><section class="section"><div class="section-head"><h2 class="section-title">常买分类</h2><button class="section-link" data-page="category">全部分类 ${icons.arrow}</button></div><div class="category-grid">${categories.map(([emoji, name]) => `<button class="category-item" data-category="${name}"><span class="category-icon">${emoji}</span><span>${name}</span></button>`).join("")}</div></section><section class="section"><div class="section-head"><h2 class="section-title">精选推荐</h2><button class="section-link" data-page="category">更多 ${icons.arrow}</button></div><div class="product-grid">${products.slice(0, 4).map(productCard).join("")}</div></section></div>${nav("home")}</section>`;
 }
 
 function productCard(product) {
@@ -123,10 +123,10 @@ function profilePage() {
   return `<section class="screen">${topbar("我的")}<div class="content profile-content"><section class="profile-hero"><div class="avatar">😊</div><div class="profile-copy"><div class="profile-name">欢迎来到乐享便利店</div><div class="profile-hint">登录微信后，可查看订单和收货地址</div><div class="profile-location">赤水本地 · 邻里好生活</div></div><button class="profile-arrow" aria-label="个人资料">${icons.arrow}</button></section><section class="profile-section"><div class="profile-section-head"><h2 class="section-title">我的订单</h2><button class="section-link" data-page="orders">全部订单 ${icons.arrow}</button></div><div class="order-status-grid">${orderShortcuts.map(([label, symbol]) => `<button class="order-status-item" data-page="orders"><span class="status-icon">${symbol}</span><span>${label}</span></button>`).join("")}</div></section><section class="profile-section profile-list"><button class="setting"><span><i class="setting-icon">⌂</i>收货地址</span>${icons.arrow}</button><button class="setting"><span><i class="setting-icon">☏</i>联系客服</span>${icons.arrow}</button><button class="setting"><span><i class="setting-icon">♧</i>关于乐享便利店</span>${icons.arrow}</button></section></div>${nav("profile")}</section>`;
 }
 
-function render() {
+function render(animate = true) {
   const page = { home: homePage, category: categoryPage, detail: detailPage, cart: cartPage, checkout: checkoutPage, orders: ordersPage, profile: profilePage }[state.page] || homePage;
   app.innerHTML = page();
-  if (renderedPage !== state.page) app.querySelector(".screen")?.classList.add("page-enter");
+  if (animate && renderedPage !== state.page) app.querySelector(".screen")?.classList.add("page-enter");
   renderedPage = state.page;
 }
 
@@ -161,7 +161,7 @@ app.addEventListener("click", event => {
   const payButton = event.target.closest("[data-payment]");
   const tabButton = event.target.closest("[data-order-tab]");
 
-  if (pageButton) { state.page = pageButton.dataset.page; render(); return; }
+  if (pageButton) { const isBottomNav = pageButton.classList.contains("nav-item"); state.page = pageButton.dataset.page; render(!isBottomNav); return; }
   if (categoryButton) { state.category = categoryButton.dataset.category; state.page = "category"; render(); return; }
   if (productButton) { state.selectedProduct = products.find(product => product.id === Number(productButton.dataset.product)); state.page = "detail"; render(); return; }
   if (addButton) { addToCart(Number(addButton.dataset.add)); return; }

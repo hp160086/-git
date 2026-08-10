@@ -225,6 +225,8 @@ button { cursor: pointer; }
 .content { padding-bottom: 28px; }
 .topbar { background: rgba(255, 255, 255, .94); }
 .home-topbar { padding-bottom: 14px; }
+.mini-actions { min-width: 72px; justify-content: flex-end; }
+.bamboo-mark { display: block; width: 70px; height: 28px; object-fit: cover; object-position: center; opacity: .9; mix-blend-mode: multiply; }
 .home-brand { margin-bottom: 3px; font-size: 20px; line-height: 1.15; }
 .brand { color: var(--green-900); }
 .brand span { color: var(--green-600); }
