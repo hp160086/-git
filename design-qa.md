@@ -42,6 +42,17 @@ No actionable P0, P1 or P2 findings remain for this visual iteration.
 
 final result: passed
 
+## Follow-up iteration: 首页竹瀑背景嵌入
+
+Implementation screenshot: `C:/Users/Administrator/AppData/Local/Temp/lexiang-home-integrated.png`
+
+- Removed the standalone top-right bamboo mark from the homepage and inner-page topbars.
+- Moved the existing bamboo/waterfall asset to the homepage top surface as a full background layer behind the brand, search, hero copy and delivery strip.
+- Verified at 430 x 900 CSS px that the foreground text remains readable, the search button remains visible, the delivery strip stays inside the rounded surface, and the category section begins cleanly below it.
+- `node --check app.js` and `git diff --check` pass.
+
+final result: passed
+
 ## Follow-up iteration: 我的页面
 
 Implementation screenshot: `C:/Users/Administrator/AppData/Local/Temp/lexian-profile-latest.png`
